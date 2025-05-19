@@ -118,6 +118,7 @@ int main(struct multiboot *mboot_ptr)
         //timer_install();
         keyboardInstall();
         init_video();
+        paging_install(mboot_ptr->mem_upper + 1024);
         settextcolor(12,0);
         kprintf("[%s %s]\n", KERNEL_UNAME, KERNEL_VERSION);
 	settextcolor(1,0);

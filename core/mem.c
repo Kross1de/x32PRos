@@ -162,7 +162,7 @@ free_frame(
 
 void
 paging_install(uint32 memsize) {
-        nframes = memsize / 0x1000; // Each frame is 4KB
+        nframes = memsize / 4; 
         frames  = (uint32 *)kmalloc(INDEX_FROM_BIT(nframes));
         memset(frames, 0, INDEX_FROM_BIT(nframes));
         kernel_directory = (page_directory_t *)kvmalloc(sizeof(page_directory_t));
