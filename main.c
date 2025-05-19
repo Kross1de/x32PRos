@@ -8,6 +8,9 @@
 #include "include/kernel.h"
 #include "include/multiboot.h"
 
+page_directory_t *kernel_directory;
+page_directory_t *current_directory;
+
 /*
  * memcpy
  * Copy from source to destination. Assumes that
@@ -118,7 +121,7 @@ int main(struct multiboot *mboot_ptr)
         settextcolor(12,0);
         kprintf("[%s %s]\n", KERNEL_UNAME, KERNEL_VERSION);
 	settextcolor(1,0);
-        /* Multiboot Debug */
+	/* Multiboot Debug */
 	kprintf("Received the following MULTIBOOT data:\n");
 	settextcolor(7,0);
 	kprintf("Flags : 0x%x ", mboot_ptr->flags);
@@ -149,10 +152,13 @@ int main(struct multiboot *mboot_ptr)
 	kprintf("(End multiboot raw data)\n");
 	kprintf("Started with: %s\n", (char *)mboot_ptr->cmdline);
 	kprintf("Booted from: %s\n", (char *)mboot_ptr->boot_loader_name);
+	
 	kprintf("%dkB lower memory\n", mboot_ptr->mem_lower);
 	kprintf("%dkB higher memory ", mboot_ptr->mem_upper);
 	int mem_mb = mboot_ptr->mem_upper / 1024;
 	kprintf("(%dMB)\n", mem_mb);
+	
+
 	settextcolor(7,0);
 	kprintf("Testing colors...\n");
 	resettextcolor();
@@ -164,7 +170,7 @@ int main(struct multiboot *mboot_ptr)
 	putch('\n');
 	resettextcolor();
 
-	settextcolor(14,4);
+	settextcolor(9,0);
 	kprintf(" = Roadmap = \n");
 	kprintf("- Paging\n");
 	kprintf("- Heap\n");
@@ -173,6 +179,9 @@ int main(struct multiboot *mboot_ptr)
 	kprintf("- Task switching\n");
 	kprintf("- User mode execution\n");
 	kprintf("- EXT2\n");
+	resettextcolor();
+
+	kprintf("Kernel is finished booting. Press `q` to produce a page fault.\n");
         //for(;;);
         return 0;
 }

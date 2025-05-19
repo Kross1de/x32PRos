@@ -1,7 +1,7 @@
 include ../Makefile.inc
 .PHONY: all clean core
 
-all: GDT.o IDT.o irq.o isrs.o kbd.o kprintf.o timer.o vga.o
+all: GDT.o IDT.o irq.o isrs.o kbd.o kprintf.o timer.o vga.o mem.o panic.o
 
 %.o: %.c
 	${CC} ${CFLAGS} -I../include -c -o $@ $<

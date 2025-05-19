@@ -46,6 +46,11 @@ keyboard_handler() {
         if (scancode & 0x80) {
                 /* key up */
         } else {
+                if (kbd[scancode] == 'q') {
+                        /* Page Fault Time */
+                        uint32 *ptr = (uint32 *)0xA0000000;
+                        uint32 do_page_fault = *ptr;
+                }
                 putch(kbd[scancode]);
         }
 }
