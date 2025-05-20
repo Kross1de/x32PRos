@@ -83,6 +83,9 @@ extern uintptr_t kmalloc(size_t size);
 extern uintptr_t kvmalloc(size_t size);
 extern uintptr_t kmalloc_p(size_t size, uintptr_t * phys);
 extern uintptr_t kvmalloc_p(size_t size, uintptr_t * phys);
+extern void heap_install();
+extern void *sbrk(uintptr_t increment);
+extern void free(void *ptr);
 
 typedef struct page {
 	uint32 present : 1;
