@@ -5,6 +5,17 @@
 
 #include "../include/kernel.h"
 
+typedef struct {
+        uint32 magic;
+        char   is_hole;
+        uint32 size;
+} header_t;
+
+typedef struct {
+        uint32 magic;
+        header_t * header;
+} footer_t;
+
 extern uintptr_t end;
 uintptr_t placement_pointer = (uintptr_t)&end;
 
