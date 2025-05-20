@@ -8,6 +8,7 @@
 typedef unsigned long uintptr_t;
 typedef long size_t;
 typedef unsigned int uint32;
+typedef unsigned char uint8;
 
 /* Unimportant Kernel Strings */
 #define KERNEL_UNAME "PRos"

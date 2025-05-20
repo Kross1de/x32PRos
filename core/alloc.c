@@ -523,8 +523,7 @@ static void * __attribute__ ((malloc)) klmalloc(size_t size) {
              * Grow the heap for the new bin.
              */
             bin_header = (klmalloc_bin_header*)sbrk(PAGE_SIZE);
-            ASSERT((uintptr_t)bin_header % PAGE_SIZE == 0);
-            kprintf("bin_header = 0x%x\n", bin_header);
+            ASSERT((uintptr_t)bin_header % PAGE_SIZE == 0);        
 
             /*
              * Set the head of the stack.
