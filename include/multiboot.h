@@ -1,3 +1,6 @@
+#ifndef MULTIBOOT_H
+#define MULTIBOOT_H
+
 #include "kernel.h"
 
 #define MULTIBOOT_FLAG_MEM     0x001
@@ -39,3 +42,8 @@ struct multiboot
    uintptr_t vbe_interface_off;
    uintptr_t vbe_interface_len;
 }  __attribute__((packed));
+
+struct multiboot * copy_multiboot(struct multiboot *mboot_ptr);
+void dump_multiboot(struct multiboot *mboot_ptr);
+
+#endif
