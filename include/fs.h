@@ -51,5 +51,6 @@ void open_fs(fs_node_t *node, uint8 read, uint8 write);
 void close_fs(fs_node_t *node);
 struct dirent *readdir_fs(fs_node_t *node, uint32 index);
 fs_node_t *finddir_fs(fs_node_t *node, char *name);
+fs_node_t *kopen(const char *filename, uint32 flags);
 
 #endif

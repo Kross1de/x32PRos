@@ -44,3 +44,11 @@ fs_node_t *finddir_fs(fs_node_t *node, char *name) {
                 return (fs_node_t *)NULL;
         }
 }
+
+fs_node_t *
+kopen(
+		const char *filename,
+		uint32 flags
+     ) {
+	/* later */
+}
