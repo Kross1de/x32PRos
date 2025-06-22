@@ -7,6 +7,7 @@
 
 #include "include/kernel.h"
 #include "include/multiboot.h"
+#include "include/ext2.h"
 
 page_directory_t *kernel_directory;
 page_directory_t *current_directory;
